@@ -14,6 +14,7 @@ function mostrar()
     var acumuladorPeso = 0;
     var contadorpeso = 0;
     var promedioPeso = 0;
+    var pesoMinimo = 0;
 
 
 
@@ -44,8 +45,13 @@ function mostrar()
         {
             mayorPeso= peso;
             mayorMarca = marca;
-            flag = 1;
         }
+        
+        if(peso < pesoMinimo || flag == 0) 
+        {
+            pesoMinimo = peso;
+            flag = 1;
+        }    
 
 
 
@@ -54,6 +60,11 @@ function mostrar()
             
             contadorTemperatura++;
         }
+        
+       
+
+           
+
 
         
         
@@ -62,18 +73,7 @@ function mostrar()
 
             promedioPeso = acumuladorPeso / contadorpeso;
 
-
-
         
-
-
-
-
-
-        
-        
-
-
         seguir = prompt("quiere continua?");
 
     }while(seguir == "s")        
@@ -82,5 +82,6 @@ function mostrar()
     document.write("La marca del producto más pesado "+mayorPeso+ "<br>");
     document.write("La cantidad de productos que se conservan a menos de 0 grados. "+contadorTemperatura+ "<br>"); 
     document.write("El promedio del peso de todos los productos "+promedioPeso+ "<br>");
+    document.write("El peso minimo es: "+pesoMinimo+ "<br>");
 
 }
